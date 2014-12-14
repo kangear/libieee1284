@@ -1,10 +1,5 @@
-# this is now the default FreeType build for Android
+# this is now the default Ieee1284 build for Android
 #
-ifndef USE_FREETYPE
-USE_FREETYPE := 2.4.2
-endif
-
-ifeq ($(USE_FREETYPE),2.4.2)
 LOCAL_PATH:= $(call my-dir)
 include $(CLEAR_VARS)
 
@@ -23,11 +18,12 @@ LOCAL_SRC_FILES:= \
 	src/delay.c \
 	src/detect.c \
 	src/deviceid.c \
-	# for Python
-	#src/ieee1284module.c \
 	src/interface.c \
 	src/ports.c \
 	src/state.c
+
+# for Python
+# src/ieee1284module.c
 
 LOCAL_C_INCLUDES += \
 	$(LOCAL_PATH)/ \
@@ -47,4 +43,3 @@ LOCAL_CFLAGS += -O2
 LOCAL_MODULE:= libieee1284
 
 include $(BUILD_STATIC_LIBRARY)
-endif
